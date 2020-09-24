@@ -3,8 +3,8 @@ FROM alpine:3.12
 RUN apk update \
     && addgroup www-data -S \
     && adduser www-data -S -G www-data \
-    && apk add php7-dom php7-fpm php7-fileinfo php7-tokenizer php7-xml php7-xmlwriter composer \
-        php7-opcache php7-pdo php7-pdo_pgsql php7-pgsql php7-session --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community \
+    && apk add composer php7-dom php7-fileinfo php7-fpm php7-opcache php7-pecl-redis php7-pdo \
+        php7-pdo_pgsql php7-pgsql php7-session php7-tokenizer php7-xml php7-xmlwriter --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community \
     && apk add nginx supervisor nodejs npm \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
